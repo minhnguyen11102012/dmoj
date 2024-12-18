@@ -67,6 +67,10 @@ jobs:
         echo "CELERY_BROKER_URL = 'redis://localhost:6379/0'" >> local_settings.py
         echo "CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'" >> local_settings.py
         echo "SECRET_KEY = os.environ.get('SECRET_KEY', 'replace-this-with-a-secure-key')" >> local_settings.py
+        echo "STATIC_URL = '/static/'" >> local_settings.py
+        echo "STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')" >> local_settings.py
+        echo "COMPRESS_ROOT = STATIC_ROOT" >> local_settings.py
+
 
     - name: Run Migrations
       run: |
